@@ -1,0 +1,17 @@
+{
+  "name": "image-resizer-desktopapp",
+  "productName": "Image resizer",
+  "version": "1.0.0",
+  "description": "desktop app to resize image dimensions ",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "BOUAB Ahmed",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^21.0.1",
+    "resize-img": "^2.0.0",
+    "toastify-js": "^1.12.0"
+  }
+}
