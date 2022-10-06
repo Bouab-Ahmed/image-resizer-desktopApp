@@ -14,6 +14,17 @@ const createMainWindow = () => {
   window.loadFile(path.join(__dirname, './renderer/index.html'));
 };
 
+// create the About window
+const createAboutWindow = () => {
+  const window = new BrowserWindow({
+    title: 'About Image Resizer',
+    width: 300,
+    height: 400,
+  });
+
+  window.loadFile(path.join(__dirname, './renderer/about.html'));
+};
+
 const menu = [
   ...(isMac
     ? [
@@ -22,6 +33,7 @@ const menu = [
           submenu: [
             {
               label: 'about',
+              click: createAboutWindow,
             },
           ],
         },
@@ -37,6 +49,7 @@ const menu = [
           submenu: [
             {
               label: 'About',
+              click: createAboutWindow,
             },
           ],
         },
