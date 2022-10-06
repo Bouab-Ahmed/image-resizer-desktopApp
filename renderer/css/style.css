@@ -399,7 +399,7 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
+  /* vertical-align: middle; */
   /* 2 */
 }
 
@@ -671,6 +671,10 @@ video {
 .bg-teal-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(20 184 166 / var(--tw-bg-opacity));
+}
+.bg-gray-special {
+  --tw-bg-opacity: 1;
+  background-color: #161818;
 }
 
 .p-3 {
