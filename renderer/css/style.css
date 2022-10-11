@@ -399,7 +399,7 @@ embed,
 object {
   display: block;
   /* 1 */
-  /* vertical-align: middle; */
+  vertical-align: middle;
   /* 2 */
 }
 
@@ -672,10 +672,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(20 184 166 / var(--tw-bg-opacity));
 }
-.bg-gray-special {
-  --tw-bg-opacity: 1;
-  background-color: #161818;
-}
 
 .p-3 {
   padding: 0.75rem;
@@ -803,4 +799,10 @@ video {
 
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
+}
+
+.toastify {
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 16px;
 }

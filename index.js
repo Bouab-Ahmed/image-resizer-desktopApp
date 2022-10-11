@@ -9,9 +9,15 @@ const createMainWindow = () => {
     title: 'Image Resizer',
     width: 500,
     height: 600,
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: true,
+      preload: path.join(__dirname, './renderer/js/preload.js'),
+    },
   });
 
   window.loadFile(path.join(__dirname, './renderer/index.html'));
+  window.webContents.openDevTools();
 };
 
 // create the About window
@@ -25,6 +31,7 @@ const createAboutWindow = () => {
   window.loadFile(path.join(__dirname, './renderer/about.html'));
 };
 
+// custome menu
 const menu = [
   ...(isMac
     ? [
