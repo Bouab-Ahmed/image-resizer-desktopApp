@@ -73,7 +73,7 @@ app.whenReady().then(() => {
   createMainWindow();
 
   //implement the menu
-  const mainMenu = Menu.buildFromTemplate(menu);
+  let mainMenu = Menu.buildFromTemplate(menu);
   Menu.setApplicationMenu(mainMenu);
 
   mainWindow.on('closed', () => (mainMenu = null));
