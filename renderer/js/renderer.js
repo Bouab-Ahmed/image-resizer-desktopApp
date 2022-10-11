@@ -89,7 +89,9 @@ const sendImage = (e) => {
 };
 
 ipcRenderer.on('image:done', () => {
-  alertMessage('image resized successfully');
+  alertMessage(
+    `image resized successfully to ${widthinput.value}x${heightinput.value}`
+  );
 });
 
 img.addEventListener('change', loadImage);
