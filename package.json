@@ -5,7 +5,7 @@
   "description": "desktop app to resize image dimensions ",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "npx electronmon ."
   },
   "author": "BOUAB Ahmed",
   "license": "MIT",
