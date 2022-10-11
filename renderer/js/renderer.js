@@ -5,7 +5,7 @@ const filename = document.querySelector('#filename');
 const heightinput = document.querySelector('#height');
 const widthinput = document.querySelector('#width');
 
-const alertMessage = (message, type = 'success') => {
+const alertMessage = (message, type) => {
   if (type === 'error') {
     toastify.toast({
       text: message,
@@ -35,8 +35,6 @@ const alertMessage = (message, type = 'success') => {
   }
 };
 
-// send image to main
-
 const loadImage = (e) => {
   const file = e.target.files[0];
 
@@ -59,10 +57,36 @@ const loadImage = (e) => {
 
 // make sure file is image
 const isFileImage = (file) => {
-  console.log(typeof file);
   const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
   return file && acceptedImageTypes.includes(file.type);
 };
 
+// send image to main
+
+const sendImage = (e) => {
+  e.preventDefault();
+
+  const width = widthinput.value;
+  const height = heightinput.value;
+  const imgPath = img.files[0].path;
+
+  if (!img.files[0]) {
+    alertMessage('please upload an image first', 'error');
+  }
+
+  if (width === '' || height === '') {
+    alertMessage('please fill in a height and width', 'error');
+  } else {
+    alertMessage('rah 0', 'sucess');
+  }
+
+  // send image using ipcRenderer
+  ipcRenderer.send('image:resize', {
+    imgPath,
+    width,
+    height,
+  });
+};
+
 img.addEventListener('change', loadImage);
-// form.addEventListener('submit', sendImage);
+form.addEventListener('submit', sendImage);
