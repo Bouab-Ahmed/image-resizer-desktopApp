@@ -9,7 +9,7 @@ const alertMessage = (message, type) => {
   if (type === 'error') {
     toastify.toast({
       text: message,
-      duration: 3000,
+      duration: 5000,
       newWindow: true,
       className: 'toastify',
       gravity: 'top', // `top` or `bottom`
@@ -22,7 +22,7 @@ const alertMessage = (message, type) => {
   } else {
     toastify.toast({
       text: message,
-      duration: 3000,
+      duration: 5000,
       newWindow: true,
       className: 'toastify',
       gravity: 'top', // `top` or `bottom`
@@ -72,12 +72,12 @@ const sendImage = (e) => {
 
   if (!img.files[0]) {
     alertMessage('please upload an image first', 'error');
+    return;
   }
 
   if (width === '' || height === '') {
     alertMessage('please fill in a height and width', 'error');
-  } else {
-    alertMessage('rah 0', 'sucess');
+    return;
   }
 
   // send image using ipcRenderer
@@ -87,6 +87,10 @@ const sendImage = (e) => {
     height,
   });
 };
+
+ipcRenderer.on('image:done', () => {
+  alertMessage('image resized successfully');
+});
 
 img.addEventListener('change', loadImage);
 form.addEventListener('submit', sendImage);
