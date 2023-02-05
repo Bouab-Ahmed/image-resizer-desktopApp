@@ -44,7 +44,6 @@ const loadImage = (e) => {
   }
 
   const image = new Image();
-  console.log(file);
   image.src = URL.createObjectURL(file);
   image.onload = function () {
     widthinput.value = this.width;
